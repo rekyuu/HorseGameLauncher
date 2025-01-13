@@ -3,21 +3,18 @@
         nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     };
 
-    outputs = { self, nixpkgs }:
+    outputs = { self, nixpkgs, ... }:
         let
             pkgs = nixpkgs.legacyPackages.x86_64-linux;
-            dotnet = pkgs.dotnetCorePackages.sdk_9_0;
         in {
-            devShells.x86_64-linux.default = with pkgs; mkShell {
+            devShells.x86_64-linux.default = with pkgs; mkShell rec {
                 nativeBuildInputs =  [
-                    dotnet
+                    dotnetCorePackages.sdk_9_0
                 ];
 
                 buildInputs = [
+                    gtk3
                     gtk4
-                    glib
-                    gdk-pixbuf
-                    gobject-introspection
                     libadwaita
                 ];
 
