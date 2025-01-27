@@ -22,7 +22,7 @@ internal class HorseGameUserConfig
     [JsonPropertyName("dxvk_version")]
     public string? DxvkVersion { get; set; }
 
-    private static JsonSerializerOptions JsonOptions => new()
+    private static JsonSerializerOptions _jsonOptions = new()
     {
         WriteIndented = true
     };
@@ -51,7 +51,7 @@ internal class HorseGameUserConfig
         Log.Information("Saving user config");
 
         string configPath = PathUtility.GetConfigFilePath();
-        string serializedConfig = JsonSerializer.Serialize(Instance, JsonOptions);
+        string serializedConfig = JsonSerializer.Serialize(Instance, _jsonOptions);
 
         await File.WriteAllTextAsync(configPath, serializedConfig);
     }
