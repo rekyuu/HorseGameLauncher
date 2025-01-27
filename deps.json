@@ -1,0 +1,77 @@
+[
+  {
+    "pname": "AtkSharp",
+    "version": "3.24.24.117-develop",
+    "hash": "sha256-ubAzPecV3tV9h2OUUqiJw8OqPzg+iHQ1LBMZ7sU/mJo="
+  },
+  {
+    "pname": "CairoSharp",
+    "version": "3.24.24.117-develop",
+    "hash": "sha256-3dTmn3TpcDxEqTsvPdA8ueMYzK0IR5Z/vUR6xPCEnYE="
+  },
+  {
+    "pname": "GdkSharp",
+    "version": "3.24.24.117-develop",
+    "hash": "sha256-6pW0Pj5jJXiyQfqPKIu0klrViMqKf+pRk++a4chIaxA="
+  },
+  {
+    "pname": "GioSharp",
+    "version": "3.24.24.117-develop",
+    "hash": "sha256-CLW912aVbiFjcWS8g36fEx+4HfOB7nAlhK1sVaPZSCM="
+  },
+  {
+    "pname": "GLibSharp",
+    "version": "3.24.24.117-develop",
+    "hash": "sha256-aJC9OOXB6qV/vjCarQn4DC/jxAuyV2cTclFjB3oguMk="
+  },
+  {
+    "pname": "GtkSharp",
+    "version": "3.24.24.117-develop",
+    "hash": "sha256-CgNVKW81n8MdVy481nYVY6KApDzlhEzxILSKkNLe5pg="
+  },
+  {
+    "pname": "GtkSourceSharp",
+    "version": "3.24.24.117-develop",
+    "hash": "sha256-6+lrHE8GznY4ctJRETCgucFlbxov1uESSa7YM4Saw9M="
+  },
+  {
+    "pname": "PangoSharp",
+    "version": "3.24.24.117-develop",
+    "hash": "sha256-G+UgcJKurjnR3kGfHB6SFZ7ujz1+5/+yN8jUYQ7jpgM="
+  },
+  {
+    "pname": "Serilog",
+    "version": "4.0.0",
+    "hash": "sha256-j8hQ5TdL1TjfdGiBO9PyHJFMMPvATHWN1dtrrUZZlNw="
+  },
+  {
+    "pname": "Serilog",
+    "version": "4.2.1-dev-02337",
+    "hash": "sha256-pueJ9NcqKHazbdW8Tn09cWiqIac+hPwuyHy2VDUvD5A="
+  },
+  {
+    "pname": "Serilog.Sinks.Console",
+    "version": "6.0.0",
+    "hash": "sha256-QH8ykDkLssJ99Fgl+ZBFBr+RQRl0wRTkeccQuuGLyro="
+  },
+  {
+    "pname": "Serilog.Sinks.File",
+    "version": "6.0.0",
+    "hash": "sha256-KQmlUpG9ovRpNqKhKe6rz3XMLUjkBqjyQhEm2hV5Sow="
+  },
+  {
+    "pname": "SharpCompress",
+    "version": "0.39.0",
+    "hash": "sha256-Me88MMn5NUiw5bugFKCKFRnFSXQKIFZJ+k97Ex6jgZE="
+  },
+  {
+    "pname": "System.Buffers",
+    "version": "4.6.0",
+    "hash": "sha256-c2QlgFB16IlfBms5YLsTCFQ/QeKoS6ph1a9mdRkq/Jc="
+  },
+  {
+    "pname": "ZstdSharp.Port",
+    "version": "0.8.4",
+    "hash": "sha256-4bFUNK++6yUOnY7bZQiibClSJUQjH0uIiUbQLBtPWbo="
+  }
+]

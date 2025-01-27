@@ -6,6 +6,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Eng", "Eng", "{9EDD31A1-481
 	ProjectSection(SolutionItems) = preProject
 		..\flake.nix = ..\flake.nix
 		..\.gitignore = ..\.gitignore
+		..\default.nix = ..\default.nix
+		..\scripts\nix-build.sh = ..\scripts\nix-build.sh
+		..\scripts\nix-fetch-deps.sh = ..\scripts\nix-fetch-deps.sh
 	EndProjectSection
 EndProject
 Global
