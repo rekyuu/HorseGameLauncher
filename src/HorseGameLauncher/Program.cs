@@ -30,7 +30,10 @@ internal static class Program
                 HorseGameLauncherConfig.ApplicationVersion,
                 Environment.MachineName);
 
-            HorseGameUserConfig.Load();
+            await HorseGameUserConfig.Load();
+            await Compatibility.FetchComponentsIndex();
+            await Compatibility.DownloadComponents();
+            Compatibility.ValidatePrefix();
 
             Application.Init();
             ExceptionManager.UnhandledException += OnUnhandledException;

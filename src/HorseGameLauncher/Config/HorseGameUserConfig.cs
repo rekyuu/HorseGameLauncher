@@ -2,49 +2,64 @@ using System;
 using System.IO;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using HorseGameLauncher.Utility;
 using Serilog;
 
 namespace HorseGameLauncher.Config;
 
-public class HorseGameUserConfig
+internal class HorseGameUserConfig
 {
     [JsonIgnore]
-    public static HorseGameUserConfig Instance { get; private set; } = new();
+    internal static HorseGameUserConfig Instance { get; private set; } = new();
 
-    [JsonPropertyName("wine_prefix_dir")]
-    public string WinePrefixDir { get; set; }
+    [JsonPropertyName("data_dir")]
+    public string? DataDir { get; set; }
 
-    public static void Load()
+    [JsonPropertyName("wine_version")]
+    public string? WineVersion { get; set; }
+
+    [JsonPropertyName("dxvk_version")]
+    public string? DxvkVersion { get; set; }
+
+    internal static async Task Load()
     {
-        string configPath = GetConfigPath();
+        Log.Information("Loading user config");
+
+        string configPath = PathUtility.GetConfigFilePath();
         if (File.Exists(configPath))
         {
-            string serializedConfig = File.ReadAllText(configPath);
+            string serializedConfig = await File.ReadAllTextAsync(configPath);
             HorseGameUserConfig? config = JsonSerializer.Deserialize<HorseGameUserConfig>(serializedConfig);
 
-            Instance = config ?? new HorseGameUserConfig();
+            Instance = config ?? GetDefaultConfig();
         }
-
-        Log.Information("User config loaded");
+        else
+        {
+            Instance = GetDefaultConfig();
+            await Save();
+        }
     }
 
-    public static void Save()
+    internal static async Task Save()
     {
-        string configPath = GetConfigPath();
+        Log.Information("Saving user config");
+
+        string configPath = PathUtility.GetConfigFilePath();
         string serializedConfig = JsonSerializer.Serialize(Instance);
 
-        File.WriteAllText(configPath, serializedConfig);
-
-        Log.Information("User config saved");
+        await File.WriteAllTextAsync(configPath, serializedConfig);
     }
 
-    private static string GetConfigPath()
+    internal static HorseGameUserConfig GetDefaultConfig()
     {
-        string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-        string configDir = Path.Combine(appDataPath, HorseGameLauncherConfig.ApplicationName);
+        Log.Information("Creating default user config");
 
-        Directory.CreateDirectory(configDir);
-
-        return Path.Combine(configDir, "config.json");
+        return new HorseGameUserConfig
+        {
+            DataDir = PathUtility.GetDefaultDataPath(),
+            WineVersion = Compatibility.DefaultWineVersion,
+            DxvkVersion = Compatibility.DefaultDxvkVersion
+        };
     }
 }

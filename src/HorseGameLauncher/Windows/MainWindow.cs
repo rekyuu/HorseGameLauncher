@@ -6,9 +6,9 @@ using Application = Gtk.Application;
 
 namespace HorseGameLauncher.Windows;
 
-public class MainWindow : Window
+internal class MainWindow : Window
 {
-    public MainWindow() : base(WindowType.Toplevel)
+    internal MainWindow() : base(WindowType.Toplevel)
     {
         WindowPosition = WindowPosition.Center;
         DefaultSize = new Gdk.Size(320, 180);
@@ -46,6 +46,7 @@ public class MainWindow : Window
     private void OnButtonClicked(object? sender, EventArgs e)
     {
         Log.Information("Button clicked");
+        Compatibility.RunInPrefix("/home/rekyuu/wineapps/emotracker_setup.exe");
     }
 
     private void OnThrowButtonClicked(object? sender, EventArgs e)

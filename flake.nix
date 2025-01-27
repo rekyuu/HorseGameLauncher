@@ -14,7 +14,6 @@
 
                 buildInputs = [
                     gtk3
-                    gtk4
                     libadwaita
                 ];
 

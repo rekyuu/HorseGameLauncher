@@ -1,19 +1,20 @@
 using System;
+using System.IO;
 using System.Reflection;
 using Serilog.Core;
 using Serilog.Events;
 
 namespace HorseGameLauncher.Config;
 
-public static class HorseGameLauncherConfig
+internal static class HorseGameLauncherConfig
 {
-    public static string ApplicationName { get; private set; } = "HorseGameLauncher";
+    internal static string ApplicationName { get; private set; } = "HorseGameLauncher";
 
-    public static string ApplicationVersion { get; private set; } = "0.0.0-alpha";
+    internal static string ApplicationVersion { get; private set; } = "0.0.0-alpha";
 
-    public const string ApplicationId = "me.riichi.horse-game-launcher";
+    internal const string ApplicationId = "me.riichi.horse-game-launcher";
 
-    public static string LogLevel { get; private set; }
+    private static string LogLevel { get; set; }
 
     static HorseGameLauncherConfig()
     {
@@ -28,7 +29,7 @@ public static class HorseGameLauncherConfig
         LogLevel = Environment.GetEnvironmentVariable("LOG_LEVEL") ?? "INFO";
     }
 
-    public static LoggingLevelSwitch GetLogLevel()
+    internal static LoggingLevelSwitch GetLogLevel()
     {
         LoggingLevelSwitch loggingLevelSwitch = new();
 
