@@ -14,11 +14,11 @@ in buildDotnetModule rec {
     src = ./.;
     nugetDeps = ./deps.json;
 
-    projectFile = "src/HorseGameLauncher.sln";
+    projectFile = "src/${pname}.sln";
     dotnet-sdk = dotnetCorePackages.sdk_9_0;
     dotnet-runtime = dotnetCorePackages.runtime_9_0;
 
-    executables = [ "HorseGameLauncher" ];
+    executables = [ pname ];
 
     runtimeDeps = [ ];
 }
